@@ -3,332 +3,108 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Gombul — Tapılmadı 😅</title>
-    <meta name="description" content="Oops! Gombul tapılmadı — gülməli, sürətli və gözəl 404/landing səhifə." />
-    <link rel="icon" type="image/x-icon" href="/gombul.png">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gombul — Tapılmadı 😎</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/gombul.png">
     <style>
-        :root {
-            --bg-1: #0f172a;
-            --bg-2: #071032;
-            --card: rgba(255, 255, 255, 0.03);
-            --accent: #7c5cff;
-            --muted: #9aa4bf;
-            --glass: rgba(255, 255, 255, 0.04);
-            --max-width: 1100px;
-        }
-
-        * {
-            box-sizing: border-box
-        }
-
-        html,
         body {
-            height: 100%
-        }
-
-        body {
+            background-color: black;
+            background-image: radial-gradient(rgb(31 31 31 / 75%), #282828 120%);
+            height: 100vh;
             margin: 0;
-            font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-            background: radial-gradient(1200px 600px at 10% 20%, rgba(124, 92, 255, 0.12), transparent),
-                radial-gradient(900px 500px at 90% 80%, rgba(0, 200, 255, 0.04), transparent),
-                linear-gradient(180deg, var(--bg-1), var(--bg-2));
-            color: #e6eef8;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 36px;
-        }
+            overflow: hidden;
+            padding: 2rem;
+            color: #80f58a;
+            font: 1.3rem Inconsolata, monospace;
+            text-shadow: 0 0 13px #35e279;
+            filter: blur(0.7px);
 
-        .wrap {
-            width: 100%;
-            max-width: var(--max-width);
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.015));
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 18px;
-            backdrop-filter: blur(6px) saturate(120%);
-            box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
-            display: grid;
-            grid-template-columns: 1fr 460px;
-            gap: 28px;
-            padding: 34px;
-            align-items: center;
-        }
-
-        /* Responsive stacking */
-        @media (max-width:920px) {
-            .wrap {
-                grid-template-columns: 1fr;
-                padding: 22px
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: repeating-linear-gradient(0deg,
+                        rgba(black, 0.15),
+                        rgba(black, 0.15) 3px,
+                        transparent 3px,
+                        transparent 6px);
+                pointer-events: none;
             }
         }
 
-        .content {
-            padding: 10px 6px;
-        }
-
-        .eyebrow {
-            display: inline-block;
-            color: var(--muted);
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            font-size: 12px;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-            padding: 6px 10px;
-            border-radius: 8px;
-            margin-bottom: 14px;
-        }
-
-        h1 {
-            margin: 0 0 14px 0;
-            font-size: clamp(26px, 4.2vw, 44px);
-            line-height: 1.02;
-            letter-spacing: -0.02em;
-            color: #f8fbff;
-        }
-
-        p.lead {
-            margin: 0 0 18px 0;
-            color: var(--muted);
-            font-size: clamp(15px, 1.6vw, 18px);
-            max-width: 60ch;
-        }
-
-        .actions {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 6px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 18px;
-            background: linear-gradient(90deg, var(--accent), #4bb7ff 140%);
+        .animate::selection {
+            background: #078011;
+            text-shadow: none;
             color: white;
-            border-radius: 10px;
-            border: none;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 6px 18px rgba(124, 92, 255, 0.16);
-            cursor: pointer;
-            transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms;
         }
 
-        .btn.secondary {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            color: var(--muted);
-            box-shadow: none;
-        }
-
-        .btn:active {
-            transform: translateY(1px)
-        }
-
-        .btn:focus {
-            outline: 2px solid rgba(124, 92, 255, 0.18);
-            outline-offset: 3px
-        }
-
-        /* right panel (illustration) */
-        .card {
-            width: 100%;
-            max-width: 420px;
-            margin: auto;
-            padding: 20px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            min-height: 320px;
-        }
-
-        /* subtle floating */
-        .float {
-            transform-origin: center;
-            will-change: transform;
-            transition: transform 300ms cubic-bezier(.2, .9, .3, 1);
-        }
-
-        /* small footer text */
-        .meta {
-            margin-top: 16px;
-            font-size: 13px;
-            color: var(--muted);
-        }
-
-        /* small decorative dots */
-        .dots {
-            position: absolute;
-            inset: auto 18px 18px auto;
-            display: flex;
-            gap: 8px;
-            opacity: 0.85;
-        }
-
-        .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05)
-        }
-
-        /* prefers reduced motion */
-        @media (prefers-reduced-motion: reduce) {
-            .float {
-                transition: none
-            }
-
-            .wrap {
-                transition: none
-            }
+        pre {
+            margin: 0;
         }
     </style>
 </head>
 
 <body>
-    <main class="wrap" role="main" aria-labelledby="title">
-        <section class="content" aria-label="Məlumat">
-            <div class="eyebrow">Gombul — Tapılmadı</div>
-            <h1 id="title">Oops — Gombul indi yoxdu, amma gülüş pulsuzdur 😄</h1>
-            <p class="lead">
-                Bu səhifə müvəqqəti olaraq tapılmadı. Amma narahat olma — Gombul bir az dolaşır. Aşağıdakı düymələrlə
-                yenidən cəhd et və ya əsas səhifəyə qayıt.
-            </p>
 
-            <div class="actions" role="group" aria-label="Actions">
-                <a href="/" class="btn" id="homeBtn" aria-label="Əsas səhifəyə qayıt">
-                    <!-- svg icon inline -->
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
-                        <path d="M3 11.5L12 4l9 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
-                            stroke-linejoin="round" opacity="0.95" />
-                        <path d="M5 13.5v5a1 1 0 0 0 1 1h3v-4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4h3a1 1 0 0 0 1-1v-5"
-                            stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
-                            opacity="0.95" />
-                    </svg>
-                    Əsas səhifə
-                </a>
-
-                <button class="btn secondary" id="tryBtn">Yenidən yoxla</button>
-            </div>
-
-            <div class="meta" id="statusMsg" aria-live="polite">
-                Status: <strong>DNS yayılır — əksər yerlər hazırdır</strong> · <span id="time">—</span>
-            </div>
-        </section>
-
-        <aside class="card" aria-hidden="false">
-            <div class="float" id="illustration" style="max-width:320px;width:100%;">
-                <!-- Inline SVG cartoon Gombul (lightweight, scalable) -->
-                <svg viewBox="0 0 360 360" width="100%" height="100%" role="img" aria-labelledby="gombulTitle">
-                    <title id="gombulTitle">Gombul — karikatura</title>
-                    <!-- shadow -->
-                    <ellipse cx="180" cy="300" rx="100" ry="18" fill="rgba(2,6,23,0.45)" />
-                    <!-- body -->
-                    <g transform="translate(80,40)">
-                        <ellipse cx="100" cy="150" rx="95" ry="110" fill="#fff" opacity="0.06" />
-                        <ellipse cx="102" cy="140" rx="72" ry="82" fill="#fff" opacity="0.08" />
-                        <!-- head -->
-                        <g id="gombulFace">
-                            <circle cx="100" cy="65" r="60" fill="#fff" opacity="0.12" />
-                            <circle cx="100" cy="65" r="48" fill="#fff" opacity="0.18" />
-                            <!-- mouth -->
-                            <path d="M70 90 Q100 115 130 90" stroke="#ffd3e7" stroke-width="6" fill="none"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                            <!-- left eye -->
-                            <g transform="translate(70,55)">
-                                <circle cx="0" cy="0" r="10" fill="#fff" />
-                                <circle class="pupil" cx="0" cy="0" r="5" fill="#071032" />
-                            </g>
-                            <!-- right eye -->
-                            <g transform="translate(130,55)">
-                                <circle cx="0" cy="0" r="10" fill="#fff" />
-                                <circle class="pupil" cx="0" cy="0" r="5" fill="#071032" />
-                            </g>
-                            <!-- blush -->
-                            <ellipse cx="68" cy="85" rx="10" ry="6" fill="#ffccd9" opacity="0.55" />
-                            <ellipse cx="132" cy="85" rx="10" ry="6" fill="#ffccd9" opacity="0.55" />
-                        </g>
-                        <!-- hand waving -->
-                        <g transform="translate(18,120) rotate(-8)">
-                            <rect x="0" y="-6" width="22" height="28" rx="10" fill="#fff" opacity="0.08" />
-                            <circle cx="28" cy="5" r="10" fill="#fff" opacity="0.08" />
-                        </g>
-                    </g>
-                </svg>
-            </div>
-
-            <div class="dots" aria-hidden="true">
-                <div class="dot" style="background: rgba(124,92,255,0.16)"></div>
-                <div class="dot" style="background: rgba(75,183,255,0.12)"></div>
-                <div class="dot" style="background: rgba(255,255,255,0.04)"></div>
-            </div>
-        </aside>
-    </main>
-
+    <h5 class="animate">gombul... </h5>
     <script>
-        // Lightweight JS: small utilities only
-        (function () {
-            const statusMsg = document.getElementById('statusMsg');
-            const timeNode = document.getElementById('time');
-            const tryBtn = document.getElementById('tryBtn');
-            const illustration = document.getElementById('illustration');
-            const pupils = document.querySelectorAll('.pupil');
+        animateElements();
 
-            // Update time stamp
-            function updateTime() {
-                const d = new Date();
-                timeNode.textContent = d.toLocaleTimeString();
+        const ASCII_OF_A = "A".charCodeAt();
+        const NO_OF_ALPHABETS = 26;
+
+        function animateElement(element, originalText, options) {
+            let iteration = 0;
+
+            if (options.interval) {
+                return;
             }
-            updateTime();
-            setInterval(updateTime, 30_000);
 
-            // Try button: quick reload (safe)
-            tryBtn.addEventListener('click', () => {
-                statusMsg.textContent = 'Yoxlanılır… Yenilənir və serverə sorğu göndərilir.';
-                // small delay for UX
-                setTimeout(() => location.reload(true), 450);
-            });
+            options.interval = setInterval(() => {
+                const newWord = originalText
+                    .split("")
+                    .map((_, idx) => {
+                        if (idx < iteration) {
+                            return originalText[idx];
+                        }
+                        return String.fromCharCode(
+                            Math.trunc(Math.random() * NO_OF_ALPHABETS) + ASCII_OF_A
+                        );
+                    })
+                    .join("");
+                element.innerText = newWord;
 
-            // mouse parallax for illustration: gentle and performant
-            let mouse = { x: 0, y: 0 }, win = { w: window.innerWidth, h: window.innerHeight };
-            window.addEventListener('resize', () => { win.w = innerWidth; win.h = innerHeight; });
+                iteration += 1;
 
-            window.addEventListener('mousemove', (e) => {
-                mouse.x = (e.clientX - win.w / 2) / (win.w / 2);
-                mouse.y = (e.clientY - win.h / 2) / (win.h / 2);
-            });
+                if (iteration > originalText.length) {
+                    clearInterval(options.interval);
+                    options.interval = null;
+                }
+            }, 30);
+        }
 
-            // avoid heavy FPS usage, use requestAnimationFrame and tiny transforms
-            let raf;
-            function animate() {
-                const rx = mouse.x * 6; // rotateY
-                const ry = mouse.y * -6; // rotateX
-                illustration.style.transform = `translateZ(0) rotateY(${rx}deg) rotateX(${ry}deg) translateY(${mouse.y * 8}px)`;
-                // move pupils slightly
-                pupils.forEach((p) => {
-                    p.style.transform = `translate(${mouse.x * 3}px, ${mouse.y * 3}px)`;
+        function getRandomLetter() { }
+
+        function animateElements() {
+            const elements = document.getElementsByClassName("animate");
+
+            for (const element of elements) {
+                const originalText = element.innerText;
+                const options = {
+                    interval: null
+                };
+                animateElement(element, originalText, options);
+
+                element.addEventListener("mouseover", (event) => {
+                    animateElement(event.target, originalText, options);
                 });
-                raf = requestAnimationFrame(animate);
             }
-            // Respect reduced motion
-            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (!reduce) animate();
+        }
 
-            // Clean up on page hide
-            window.addEventListener('pagehide', () => cancelAnimationFrame(raf));
-        })();
     </script>
 </body>
 
