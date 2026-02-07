@@ -1,46 +1,110 @@
 <!DOCTYPE html>
 <html lang="az">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Oops! Gombul itdi 😅</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-            background-color: #f2f2f2;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oops! Gombul itdi</title>
 
-        h1 {
-            font-size: 3em;
-            color: #ff6b6b;
-        }
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
 
-        img {
-            width: 300px;
-            margin-top: 20px;
-        }
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fafafa;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
 
-        p {
-            font-size: 1.5em;
-            color: #333;
-        }
+    .container {
+      max-width: 800px;
+      padding: 20px;
+      position: relative;
+    }
 
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 1em;
-            cursor: pointer;
-        }
-    </style>
+    .title {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 15px;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .image-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      margin: auto;
+      perspective: 1000px;
+    }
+
+    .image-wrap img {
+      width: 100%;
+      transform: translateZ(0);
+      transition: transform 0.3s ease;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 28px;
+      background: #007bff;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #0056cc;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .title { font-size: 2.4rem; }
+      .subtitle { font-size: 1rem; }
+    }
+  </style>
 </head>
 
 <body>
-    <h1>Oops! Gombul itdi 😅</h1>
-    <img src="gombul.jpg" alt="Gombul" />
-    <p>Heç bir şey tapılmadı… amma gülmək pulsuzdur!</p>
-    <button onclick="alert('Gülmək yaxşıdır 😄')">Gül!</button>
-</body>
 
+<div class="container">
+  <div class="title">Oops! Gombul səhifəni tapmadı 😅</div>
+  <div class="subtitle">Gəlin bəlkə birlikdə onu tapmağa çalışaq?</div>
+
+  <div class="image-wrap">
+    <!-- Şəkili dəyişə bilərsən: gombul‑illustration.jpg kimi -->
+    <img id="gombulImg" src="gombul.jpg" alt="Gülməli Gombul">
+  </div>
+
+  <a href="/" class="btn">Əsas Səhifəyə Qayıt</a>
+</div>
+
+<script>
+  // Sadə mouse parallax effekti
+  const img = document.getElementById("gombulImg");
+  document.addEventListener("mousemove", (e) => {
+    const x = (window.innerWidth/2 - e.clientX) / 25;
+    const y = (window.innerHeight/2 - e.clientY) / 25;
+    img.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+  });
+</script>
+
+</body>
 </html>
